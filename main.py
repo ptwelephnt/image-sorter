@@ -29,8 +29,8 @@ class MyWindow(QMainWindow):
         self.setWindowTitle('ImageSorter')
         set_gradient(self)
 
-        self.main_layout = QHBoxLayout(self)
-        self.setLayout(self.main_layout)
+        self.main_layout = QHBoxLayout()
+        self.centralWidget().setLayout(self.main_layout)
         self.start_menu()
 
     def start_menu(self):
