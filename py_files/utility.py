@@ -18,7 +18,6 @@ def set_font():
     return font
 
 def load_dict():
-
     with open(KNOWN_FACES_PATH, 'r') as file:
         data = json.load(file)
         return data
@@ -29,11 +28,10 @@ def load_and_convert():
         face['encoding'] = [np.array(encoding) for encoding in face['encoding']]
     return data
 
-
 def convert_and_write(known_dict_list):
+    os.makedirs(os.path.dirname(KNOWN_FACES_PATH), exist_ok=True)
     with open(KNOWN_FACES_PATH, 'w') as file:
         json.dump(known_dict_list, file, indent=2)
-
 
 def auto_rotate_image(file_path):
     with Image.open(file_path) as img:
